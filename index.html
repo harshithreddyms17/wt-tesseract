@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timetable</title>
+    <style>
+        * {
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            text-transform: uppercase;
+        }
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            text-align: center;
+            padding: 10px;
+        }
+        th {
+            background-color: #3498db;
+            color: #fff;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Timetable [PS 6]</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Day / Period</th>
+                <th>9:30-10:20</th>
+                <th>10:20-11:10</th>
+                <th>11:10-11:25</th>
+                <th>11:25-12:15</th>
+                <th>12:15-1:05</th>
+                <th>1:05-2:00</th>
+                <th>2:00-2:50</th>
+                <th>2:50-3:40</th>
+                <th>3:40-4:30</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Add your content here -->
+            <tr>
+                <td>Monday</td>
+                <td colspan="2">PP</td>
+                <td rowspan="6">Break</td>
+                <td colspan="2">PP</td>
+                <td rowspan="6">LUNCH</td>
+                <td colspan="3">DAA</td>
+            </tr>
+            <tr>
+                <td>Tuesday</td>
+                <td  colspan="2" rowspan="5">PROJECT SCHOOL</td>
+                <td  colspan="2" rowspan="5">PROJECT SCHOOL</td>
+                <td colspan="3">SE</td>
+            </tr>
+            <tr>
+                <td>Wednesday</td>
+                <td colspan="3">DAA</td>
+            </tr>
+            <tr>
+                <td>Thursday</td>
+                <td colspan="3">WT</td>
+            </tr>
+            <tr>
+                <td>Friday</td>
+                <td colspan="3">DAA</td>
+            </tr>
+            <tr>
+                <td>Saturday</td>
+                <td colspan="3">DLVS</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
