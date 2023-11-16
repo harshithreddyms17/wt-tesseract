@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Marks Form</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+
+        h1 {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        form {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            margin: 20px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            width: 90%;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 50%;
+            margin-inline: auto;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin-top: 20px;
+            width: 100%;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+
+        tr {
+            background-color: #f9f9f9;
+        }
+
+        tr:last-child {
+            background-color: #f7f7f7;
+        }
+
+        tr:hover {
+            background-color: #e0e0e0;
+        }
+
+        #table-container {
+            margin-top: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Student Marks Form</h1>
+    <form id="student-form">
+        <label for="name">Student Name:</label>
+        <input type="text" id="name" required>
+        
+        <label for="roll">Roll Number:</label>
+        <input type="text" id="roll" required>
+
+        <label for="sub1">Subject 1 Marks:</label>
+        <input type="number" id="sub1" required>
+
+        <label for="sub2">Subject 2 Marks:</label>
+        <input type="number" id="sub2" required>
+
+        <label for="sub3">Subject 3 Marks:</label>
+        <input type="number" id="sub3" required>
+
+        <button type="button" onclick="createTable()">Create Table</button>
+    </form>
+
+    <div id="table-container"></div>
+
+    <script>
+        function createTable() {
+            const name = document.getElementById('name').value;
+            const roll = document.getElementById('roll').value;
+            const sub1 = parseInt(document.getElementById('sub1').value);
+            const sub2 = parseInt(document.getElementById('sub2').value);
+            const sub3 = parseInt(document.getElementById('sub3').value);
+            const total = sub1 + sub2 + sub3;
+
+            const tableContainer = document.getElementById('table-container');
+
+            const table = document.createElement('table');
+            const tr1 = document.createElement('tr');
+            const th1 = document.createElement('th');
+            const th2 = document.createElement('th');
+
+            th1.textContent = 'Student Name';
+            th2.textContent = 'Roll Number';
+
+            tr1.appendChild(th1);
+            tr1.appendChild(th2);
+            table.appendChild(tr1);
+
+            const tr2 = document.createElement('tr');
+            const td1 = document.createElement('td');
+            const td2 = document.createElement('td');
+
+            td1.textContent = name;
+            td2.textContent = roll;
+
+            tr2.appendChild(td1);
+            tr2.appendChild(td2);
+            table.appendChild(tr2);
+
+            const tr3 = document.createElement('tr');
+            const th3 = document.createElement('th');
+            const th4 = document.createElement('th');
+            th3.textContent = 'Subject';
+            th4.textContent = 'Marks';
+            tr3.appendChild(th3);
+            tr3.appendChild(th4);
+            table.appendChild(tr3);
+
+            const subjects = ['Subject 1', 'Subject 2', 'Subject 3'];
+            const marks = [sub1, sub2, sub3];
+
+            for (let i = 0; i < 3; i++) {
+                const tr = document.createElement('tr');
+                const td1 = document.createElement('td');
+                const td2 = document.createElement('td');
+                td1.textContent = subjects[i];
+                td2.textContent = marks[i];
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                table.appendChild(tr);
+            }
+
+            const tr4 = document.createElement('tr');
+            const td3 = document.createElement('td');
+            const td4 = document.createElement('td');
+
+            td3.textContent = 'Total Marks';
+            td4.textContent = total;
+
+            tr4.appendChild(td3);
+            tr4.appendChild(td4);
+            table.appendChild(tr4);
+
+            tableContainer.innerHTML = '';
+            tableContainer.appendChild(table);
+
+            const heading = document.createElement('h2');
+            heading.textContent = 'Student Report';
+            tableContainer.insertBefore(heading, tableContainer.firstChild);
+        }
+    </script>
+</body>
+</html>
